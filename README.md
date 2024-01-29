@@ -26,3 +26,11 @@
  
 * Tecnologias:
 	- Para a concepção desse jogo foi utilizado o editor de códigos VSCode e o editor de markdown Editor.md
+
+
+<center>
+<img  src = "https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/3/puppy-or-bagel-funny-cartoon-for-puppy-owners-designed-by-vexels-transparent.png?&targetx=165&targety=27&imagewidth=370&imageheight=445&modelwidth=700&modelheight=500&backgroundcolor=ffffff&orientation=0" witdh = "500" height= "300">
+</center>
+
+
+- <strong> Bom jogo !</strongBom>

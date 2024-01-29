@@ -12,6 +12,8 @@ def game_screen(window):
     PLAYING = 1
     state = PLAYING
 
+
+
     # ===== Loop principal =====
     while state != DONE:
         clock.tick(FPS)
@@ -23,10 +25,14 @@ def game_screen(window):
                 state = DONE
 
         # ----- Gera saídas
-        window.fill(BLACK)  # Preenche com a cor branca
+        window.fill(BLACK)  # Preenche com a cor preta
 
         #carrega as imagens
-        
+        imagem = pygame.image.load('assets\\img\\cachorro_0.png')
+        retangulo_imagem = imagem.get_rect()
+
+        window.blit(imagem, retangulo_imagem)
+
 
         pygame.display.update()  # Mostra o novo frame para o jogador
 

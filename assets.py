@@ -1,6 +1,6 @@
 import pygame
 import os
-from config import*
+from config import IMG_DIR, FNT_DIR
 
 def carrega_arquivos():
     dicionario_de_arquivos = {}

@@ -25,8 +25,9 @@ def game_screen(window):
         # ----- Gera saídas
         window.fill(BLACK)  # Preenche com a cor branca
 
-        #carrega imagens
+        #carrega as imagens
         
+
         pygame.display.update()  # Mostra o novo frame para o jogador
 
 

@@ -3,7 +3,7 @@ from config import FPS, WIDTH, HEIGHT, BLACK
 from assets import carrega_arquivos
 import random
 
-
+#Sorteia imagem -------------------------
 def sorteia_imagem():
     eh_cachorro = random.choice([True, False])
 
@@ -24,10 +24,16 @@ def sorteia_imagem():
             'y': y,
             'velocidade': velocidade}
 
+#Colisão ---------------------------
+def colisao_ponto_retangulo(posicao_x_ponto, posicao_y_ponto, posicao_x_retangulo, posicao_y_retangulo, largura_retangulo, altura_retangulo):
+    
+    if (posicao_x_ponto >= posicao_x_retangulo and posicao_x_ponto <= posicao_x_retangulo + largura_retangulo and
+        posicao_y_ponto >= posicao_y_retangulo and posicao_y_ponto <= posicao_y_retangulo + altura_retangulo):
+        return True
+    else:
+        return False
 
-
-
-
+#Tela de jogo --------------------------
 def game_screen(window):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
@@ -46,10 +52,6 @@ def game_screen(window):
     for _ in range(5):
         imagens_sorteadas.append(sorteia_imagem())
     
-
-
-
-
 
     # ===== Loop principal =====
     while state != DONE:

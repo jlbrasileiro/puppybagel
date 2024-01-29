@@ -26,11 +26,4 @@ GAME = 1
 QUIT = 2
 
 
-# DADOS DAS IMAGENS DOS CACHORROS
-cachorros = pygame.image.load('assets\\img\\PuppyOrBagel.jpg')
-colunas = 4
-linhas = 4
-#dados
-largura_foto = cachorros.get_width() // colunas
-altura_foto = cachorros.get_height() // linhas
 

@@ -1,4 +1,6 @@
 from os import path
+from assets import *
+import pygame
 
 # Estabelece a pasta que contem as figuras e sons.
 IMG_DIR = path.join(path.dirname(__file__), 'assets', 'img')
@@ -22,3 +24,13 @@ YELLOW = (255, 255, 0)
 INIT = 0
 GAME = 1
 QUIT = 2
+
+
+# DADOS DAS IMAGENS DOS CACHORROS
+cachorros = pygame.image.load('assets\\img\\PuppyOrBagel.jpg')
+colunas = 4
+linhas = 4
+#dados
+largura_foto = cachorros.get_width() // colunas
+altura_foto = cachorros.get_height() // linhas
+

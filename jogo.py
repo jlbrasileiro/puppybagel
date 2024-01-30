@@ -5,6 +5,7 @@ import random
 from config import WIDTH, HEIGHT, INIT, GAME, QUIT
 from init_screen import init_screen
 from game_screen import game_screen
+from inicio import tela_inicial
 
 pygame.init()
 pygame.mixer.init()
@@ -16,6 +17,7 @@ pygame.display.set_caption('Puppy or Bagel')
 state = INIT
 while state != QUIT:
     if state == INIT:
+        state = tela_inicial(window)
         state = init_screen(window)
     elif state == GAME:
         state = game_screen(window)

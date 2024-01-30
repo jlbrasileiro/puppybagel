@@ -4,13 +4,13 @@ from assets import carrega_arquivos
 import random
 
 #Sorteia imagem -------------------------
-def sorteia_imagem():
+def sorteia_imagem(dicionario_de_arquivos):
     eh_cachorro = random.choice([True, False])
 
     if eh_cachorro:
-        imagem =  random.choice(carrega_arquivos()['puppy'])
+        imagem =  random.choice(dicionario_de_arquivos['puppy'])
     else:
-        imagem = random.choice(carrega_arquivos()['bagel'])
+        imagem = random.choice(dicionario_de_arquivos['bagel'])
 
     x = random.randint(0, WIDTH - imagem.get_width())
 
@@ -50,7 +50,7 @@ def game_screen(window):
 
     imagens_sorteadas = []
     for _ in range(5):
-        imagens_sorteadas.append(sorteia_imagem())
+        imagens_sorteadas.append(sorteia_imagem(dicionario_de_arquivos))
     
 
     # ===== Loop principal =====
@@ -62,6 +62,18 @@ def game_screen(window):
             # ----- Verifica consequências
             if event.type == pygame.QUIT:
                 state = DONE
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_x, mouse_y = pygame.mouse.get_pos()
+                for imagem in imagens_sorteadas[:]:
+                    if colisao_ponto_retangulo(mouse_x, mouse_y, imagem['x'], imagem['y'],imagem['imagem'].get_width(), imagem['imagem'].get_height()):
+                        imagens_sorteadas.remove(imagem)
+                    else:
+                        imagens_sorteadas.remove(imagem)
+                        nova_imagem = sorteia_imagem()
+                        imagens_sorteadas.append(nova_imagem)
+                    
+
+
         #removendo imagens 
         for imagem in imagens_sorteadas[:]:
             if imagem['y'] > HEIGHT and imagem['eh_cachorro']:
@@ -78,11 +90,7 @@ def game_screen(window):
             window.blit(imagem['imagem'],(imagem['x'],imagem['y']))
             
 
-        #carrega as imagens
-        imagem = pygame.image.load('assets\\img\\cachorro_0.png')
-        retangulo_imagem = imagem.get_rect()
-
-        window.blit(imagem, retangulo_imagem)
+       
 
 
         pygame.display.update()  # Mostra o novo frame para o jogador

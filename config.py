@@ -1,5 +1,4 @@
 from os import path
-from assets import *
 import pygame
 
 # Estabelece a pasta que contem as figuras e sons.

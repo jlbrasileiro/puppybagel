@@ -51,11 +51,13 @@ def carrega_arquivos():
     total = carrega_imagens(puppy, linhas=4, colunas=4)
 
     # separando as imagens dos cachorros e da rosquinha 
+    puppy_imagens = []
+    bagel_imagens = []
 
     for i in [0,2,5,7,8,10,13,15]:
-        puppy_imagens = total[i]
+        puppy_imagens.append(total[i])
     for i in [1,3,4,6,9,11,12,14]:
-        bagel_imagens = total[i]
+        bagel_imagens.append(total[i])
 
 
     dicionario_de_arquivos['puppy'] = puppy_imagens

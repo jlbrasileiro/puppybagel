@@ -48,6 +48,8 @@ def game_screen(window):
     PLAYING = 1
     state = PLAYING
     vidas = 3
+    tempo = pygame.time.get_ticks()
+    
 
     
     imagens_sorteadas = []
@@ -58,6 +60,10 @@ def game_screen(window):
     # ===== Loop principal =====
     while state != DONE:
         clock.tick(FPS)
+
+        agora = pygame.time.get_ticks()
+        a = (int((agora - tempo)/1000))
+        
 
         # ----- Trata eventos
         for event in pygame.event.get():
@@ -95,6 +101,7 @@ def game_screen(window):
                 for _ in range(2):
                             imagem_nova = sorteia_imagem(dicionario_de_arquivos)
                             imagens_sorteadas.append(imagem_nova)
+        
 
 
             
@@ -106,6 +113,10 @@ def game_screen(window):
         font = pygame.font.SysFont(None, 48)
         text = font.render(f'{vidas}', True, (139,0,0))
         window.blit(text, (850, 10))
+        font =pygame.font.SysFont(None, 48)
+        text = font.render(f'{a}', True, (255,215,0))
+        window.blit(text, (10, 10))
+
 
         #desenhando imagens sorteadas
         for imagem in imagens_sorteadas:

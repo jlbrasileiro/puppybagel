@@ -74,6 +74,8 @@ def game_screen(window):
                         imagens_sorteadas.append(nova_imagem)
 
                         if not imagem['eh_cachorro']:
+                            pygame.mixer.music.load('assets\\snd\\wah-wah.wav')
+                            pygame.mixer.music.play()
                             vidas -= 1 
                         for _ in range(2):
                             imagem_nova = sorteia_imagem(dicionario_de_arquivos)
@@ -87,6 +89,14 @@ def game_screen(window):
                 imagens_sorteadas.remove(imagem)
                 nova_imagem = sorteia_imagem(dicionario_de_arquivos)
                 imagens_sorteadas.append(nova_imagem)
+            
+            if imagem['y'] > HEIGHT and imagem['eh_cachorro']:
+                vidas -= 1
+                for _ in range(2):
+                            imagem_nova = sorteia_imagem(dicionario_de_arquivos)
+                            imagens_sorteadas.append(imagem_nova)
+
+
             
            
 

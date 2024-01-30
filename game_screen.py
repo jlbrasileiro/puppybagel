@@ -47,8 +47,9 @@ def game_screen(window):
     DONE = 0
     PLAYING = 1
     state = PLAYING
+    vidas = 3
 
-    vidas = 0
+    
     imagens_sorteadas = []
     for _ in range(5):
         imagens_sorteadas.append(sorteia_imagem(dicionario_de_arquivos))
@@ -65,7 +66,7 @@ def game_screen(window):
                 state = DONE
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
-                for imagem in imagens_sorteadas[:]:
+                for imagem in imagens_sorteadas[::-1]:
                     if colisao_ponto_retangulo(mouse_x, mouse_y, imagem['x'], imagem['y'],imagem['imagem'].get_width(), imagem['imagem'].get_height()):
                         imagens_sorteadas.remove(imagem)
                         nova_imagem = sorteia_imagem(dicionario_de_arquivos)
@@ -90,6 +91,10 @@ def game_screen(window):
 
         # ----- Gera saídas
         window.fill(BLACK)  # Preenche com a cor preta
+
+        font = pygame.font.SysFont(None, 48)
+        text = font.render(f'{vidas}', True, (0, 0, 255))
+        window.blit(text, (10, 10))
 
         #desenhando imagens sorteadas
         for imagem in imagens_sorteadas:

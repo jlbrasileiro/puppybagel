@@ -50,8 +50,7 @@ def init_screen(screen):
         for event in pygame.event.get():
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
-                state = QUIT
-                running = False
+                return QUIT
 
             if event.type == pygame.KEYUP:
                 state = GAME

@@ -19,7 +19,9 @@ while state != QUIT:
     if state == INIT:
         #state = tela_inicial(window)
         state = init_screen(window)
-        state = tela_inicial(window)
+
+        if state != QUIT:
+            state = tela_inicial(window)
     elif state == GAME:
         state = game_screen(window)
     else:

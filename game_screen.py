@@ -48,6 +48,7 @@ def game_screen(window):
     PLAYING = 1
     state = PLAYING
 
+    vidas = 0
     imagens_sorteadas = []
     for _ in range(5):
         imagens_sorteadas.append(sorteia_imagem(dicionario_de_arquivos))
@@ -69,7 +70,13 @@ def game_screen(window):
                         imagens_sorteadas.remove(imagem)
                         nova_imagem = sorteia_imagem(dicionario_de_arquivos)
                         imagens_sorteadas.append(nova_imagem)
-                    
+
+                        if not imagem['eh_cachorro']:
+                            vidas -= 1 
+                        for _ in range(2):
+                            imagem_nova = sorteia_imagem(dicionario_de_arquivos)
+                            imagens_sorteadas.append(imagem_nova)
+                        break
 
 
         #removendo imagens 

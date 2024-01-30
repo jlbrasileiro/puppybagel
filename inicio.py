@@ -1,5 +1,6 @@
 import pygame 
 from assets import *
+from config import BLACK
 #from game_screen import DONE, PLAYING
 
 DONE = 0

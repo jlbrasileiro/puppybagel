@@ -50,7 +50,7 @@ def game_screen(window):
     vidas = 3
     tempo = pygame.time.get_ticks()
     
-
+    
     
     imagens_sorteadas = []
     for _ in range(5):
@@ -124,19 +124,14 @@ def game_screen(window):
         for imagem in imagens_sorteadas:
             imagem['y'] += imagem['velocidade']
             window.blit(imagem['imagem'],(imagem['x'],imagem['y']))
-            
-
-       
-
-
+        
         pygame.display.update()  # Mostra o novo frame para o jogador
 
         if vidas <=0:
             state = DONE
 
-        with open('rank.txt','a') as arquivo:
-            arquivo.write(agora)
 
+    
 
     return state
 

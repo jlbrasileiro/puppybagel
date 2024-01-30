@@ -13,11 +13,9 @@ def game_over(tela):
 
     #PRINTAR O NOME NA TELA
     clock = pygame.time.Clock()
-    print(clock)
 
     agora = pygame.time.get_ticks()
     a = (int((agora - tempo)/1000))
-    print(a)
 
     fonte =pygame.font.SysFont(None, 48)
     text2 = fonte.render(f'{a}', True, (255,215,0))
@@ -30,6 +28,7 @@ def game_over(tela):
 
     # Posicione o texto no centro da tela
     pos_texto = texto.get_rect(center=(900// 2, 700 // 2))
+
 
     running = True
     while running:
@@ -48,5 +47,6 @@ def game_over(tela):
         tela.blit(texto, pos_texto)
 
         pygame.display.flip()
+        
 
     return state

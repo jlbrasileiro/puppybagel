@@ -6,6 +6,7 @@ from config import WIDTH, HEIGHT, INIT, GAME, QUIT
 from init_screen import init_screen
 from game_screen import game_screen
 from inicio import tela_inicial
+from game_over import game_over
 
 pygame.init()
 pygame.mixer.init()
@@ -24,6 +25,7 @@ while state != QUIT:
         
     elif state == GAME:
         state = game_screen(window)
+        state = game_over(window)
     else:
         state = QUIT
 

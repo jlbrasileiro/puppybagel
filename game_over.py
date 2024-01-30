@@ -1,20 +1,30 @@
 import pygame 
 from assets import *
 from config import BLACK
-#from game_screen import DONE, PLAYING
+from game_screen import game_screen
 
 DONE = 0
 PLAYING = 1
 state = PLAYING
 
+tempo = pygame.time.get_ticks()
+
 def game_over(tela):
+
+    #PRINTAR O NOME NA TELA
     clock = pygame.time.Clock()
 
-    #trecho extraido de chat.openai.com
-    fonte = pygame.font.Font(None, 60)  # Você também pode fornecer o nome de uma fonte e o tamanho
+    agora = pygame.time.get_ticks()
+    a = (int((agora - tempo)/1000))
 
-    # Renderize o texto desejado
-    texto = fonte.render("Game Over !!! :(", True, (255,255,255))
+    fonte =pygame.font.SysFont(None, 48)
+    text2 = fonte.render(f'{a}', True, (255,215,0))
+
+    fonte = pygame.font.Font(None, 40) #nome da fonte e tamanho dela
+
+    # Renderize o TEMPO
+    texto2 = fonte.render('Game Over !!!', True, (255,255,255))
+    texto = fonte.render(f" Seu time foi de: {a} segundos", True, (255,255,255))
 
     # Posicione o texto no centro da tela
     pos_texto = texto.get_rect(center=(900// 2, 700 // 2))
@@ -29,11 +39,9 @@ def game_over(tela):
                 state = DONE
                 running = False
 
-            if event.type == pygame.KEYUP:
-                state = PLAYING
-                running = False
-
         tela.fill(BLACK)
+
+        tela.blit(texto2,(320,100))
 
         tela.blit(texto, pos_texto)
 

@@ -67,17 +67,17 @@ def game_screen(window):
                 for imagem in imagens_sorteadas[:]:
                     if colisao_ponto_retangulo(mouse_x, mouse_y, imagem['x'], imagem['y'],imagem['imagem'].get_width(), imagem['imagem'].get_height()):
                         imagens_sorteadas.remove(imagem)
-                    else:
-                        imagens_sorteadas.remove(imagem)
-                        nova_imagem = sorteia_imagem()
+                        nova_imagem = sorteia_imagem(dicionario_de_arquivos)
                         imagens_sorteadas.append(nova_imagem)
                     
 
 
         #removendo imagens 
         for imagem in imagens_sorteadas[:]:
-            if imagem['y'] > HEIGHT and imagem['eh_cachorro']:
+            if imagem['y'] > HEIGHT:
                 imagens_sorteadas.remove(imagem)
+                nova_imagem = sorteia_imagem(dicionario_de_arquivos)
+                imagens_sorteadas.append(nova_imagem)
             
            
 

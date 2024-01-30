@@ -135,6 +135,9 @@ def game_screen(window):
         if vidas <=0:
             state = DONE
 
+        with open('rank.txt','a') as arquivo:
+            arquivo.write(agora)
+
 
     return state
 

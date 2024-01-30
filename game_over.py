@@ -13,9 +13,11 @@ def game_over(tela):
 
     #PRINTAR O NOME NA TELA
     clock = pygame.time.Clock()
+    print(clock)
 
     agora = pygame.time.get_ticks()
     a = (int((agora - tempo)/1000))
+    print(a)
 
     fonte =pygame.font.SysFont(None, 48)
     text2 = fonte.render(f'{a}', True, (255,215,0))
@@ -41,7 +43,7 @@ def game_over(tela):
 
         tela.fill(BLACK)
 
-        tela.blit(texto2,(320,100))
+        tela.blit(texto2,(350,100))
 
         tela.blit(texto, pos_texto)
 

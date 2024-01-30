@@ -63,7 +63,6 @@ def game_screen(window):
 
         agora = pygame.time.get_ticks()
         a = (int((agora - tempo)/1000))
-        
 
         # ----- Trata eventos
         for event in pygame.event.get():

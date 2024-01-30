@@ -110,12 +110,15 @@ def game_screen(window):
         # ----- Gera saídas
         window.fill(BLACK)  # Preenche com a cor preta
 
+        #VIDAS
         font = pygame.font.SysFont(None, 48)
-        text = font.render(f'{vidas}', True, (139,0,0))
-        window.blit(text, (850, 10))
+        text1 = font.render(f'{vidas}', True, (139,0,0))
+        window.blit(text1, (850, 10))
+
+        #PONTUAÇÃO
         font =pygame.font.SysFont(None, 48)
-        text = font.render(f'{a}', True, (255,215,0))
-        window.blit(text, (10, 10))
+        text2 = font.render(f'{a}', True, (255,215,0))
+        window.blit(text2, (10, 10))
 
 
         #desenhando imagens sorteadas

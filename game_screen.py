@@ -64,6 +64,7 @@ def game_screen(window):
             # ----- Verifica consequências
             if event.type == pygame.QUIT:
                 state = DONE
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 for imagem in imagens_sorteadas[::-1]:
@@ -93,8 +94,8 @@ def game_screen(window):
         window.fill(BLACK)  # Preenche com a cor preta
 
         font = pygame.font.SysFont(None, 48)
-        text = font.render(f'{vidas}', True, (0, 0, 255))
-        window.blit(text, (10, 10))
+        text = font.render(f'{vidas}', True, (139,0,0))
+        window.blit(text, (850, 10))
 
         #desenhando imagens sorteadas
         for imagem in imagens_sorteadas:
@@ -106,6 +107,9 @@ def game_screen(window):
 
 
         pygame.display.update()  # Mostra o novo frame para o jogador
+
+        if vidas <=0:
+            state = DONE
 
 
     return state
